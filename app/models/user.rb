@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  include PgSearch::Model
   include Codeable
 
   has_secure_password :password, validations: false
