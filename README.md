@@ -1,6 +1,6 @@
 # README
 
-This Rails app is an implementation of a bit.ly like url shortener. It aims to be simple and fast.
+This Rails app is an implementation of a bit.ly like url shortener.
 
 Shortened urls are generated using a base62 token strategy, trying to avoid collisions and also reducing the database size. Tokens have 8 characters, which gives us 62^8 possible tokens.
 
