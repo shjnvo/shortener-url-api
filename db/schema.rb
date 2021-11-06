@@ -15,17 +15,6 @@ ActiveRecord::Schema.define(version: 2021_11_04_013413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blogs", force: :cascade do |t|
-    t.string "title"
-    t.string "slug"
-    t.text "content"
-    t.integer "creator_id"
-    t.datetime "published_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["creator_id"], name: "index_blogs_on_creator_id"
-  end
-
   create_table "short_urls", force: :cascade do |t|
     t.integer "user_id"
     t.string "url"
@@ -33,16 +22,6 @@ ActiveRecord::Schema.define(version: 2021_11_04_013413) do
     t.integer "clicked_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_like_blogs", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "blog_id", null: false
-    t.integer "like_count", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["blog_id"], name: "index_user_like_blogs_on_blog_id"
-    t.index ["user_id"], name: "index_user_like_blogs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,11 +2,8 @@ class User < ApplicationRecord
   include PgSearch::Model
   include Codeable
 
-  pg_search_scope :search_by_name_email, against: [:name, :email]
-
   has_secure_password :password, validations: false
 
-  has_many :blogs, foreign_key: :creator_id
   has_many :short_urls
 
   validates :name, :email, presence: true
