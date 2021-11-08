@@ -20,7 +20,7 @@ Building api image:
 Setting the database up:
 ```sh
   docker-compose run api rake db:create
-  docker-compose run api bin/setup
+  docker-compose run api rake db:migrate
 ```
 
 Running the app:
